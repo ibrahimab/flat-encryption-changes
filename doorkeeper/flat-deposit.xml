@@ -1,0 +1,13 @@
+<!-- add this *after* nl.mpi.tla.flat.deposit.action.HandleAssignment -->
+<action name="encrypt resources" class="nl.mpi.tla.flat.deposit.action.EncryptResources">
+    <parameter name="encryption_files" value="{$work}/encryption"/>
+    <parameter name="encryption_metadata" value="{$work}/metadata/flat_encryption.json"/>
+    <parameter name="encryption_credentials" value="/app/flat/encryption/credentials.json"/>
+</action>
+
+<!-- add this *after* nl.mpi.tla.flat.deposit.action.WorkspaceLogCleanup -->
+<action name="cleanupEncryptResources" class="nl.mpi.tla.flat.deposit.action.CleanupEncryptResources">
+    <parameter name="encryption_files" value="{$work}/encryption"/>
+    <parameter name="encryption_metadata" value="{$work}/metadata/flat_encryption.json"/>
+    <parameter name="encryption_credentials" value="/app/flat/encryption/credentials.json"/>
+</action>
