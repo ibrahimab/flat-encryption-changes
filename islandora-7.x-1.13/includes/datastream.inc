@@ -319,7 +319,9 @@ function islandora_datastream_get_url(AbstractDatastream $datastream, $type = 'd
   }
 
   if ($datastream->id === 'OBJ') {
-    $link = "tla-decryption/render/{$datastream->parent->id}/{$datastream->id}";
+
+    $appToken = flat_auth_get_token();
+    $link = "tla-decryption/render/{$datastream->parent->id}/{$datastream->id}/{$appToken}";
   }
 
   if ($datastream->controlGroup == 'R') {

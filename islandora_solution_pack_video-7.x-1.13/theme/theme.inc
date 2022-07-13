@@ -59,7 +59,8 @@ function template_preprocess_islandora_video(array &$variables) {
   if (isset($object[$viewer_dsid]) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object[$viewer_dsid])) {
     $video_url = url("islandora/object/{$object->id}/datastream/$viewer_dsid/view");
     #$video_url = url("vod/render/{$object->id}/OBJ");
-    $video_url = ("http://tla.local:3000/vod/{$object->id}/{$viewer_dsid},.urlset/master.m3u8");
+    $appToken = flat_auth_get_token();
+    $video_url = ("http://tla.local:3000/vod/{$object->id}/{$viewer_dsid}/{$appToken},.urlset/master.m3u8");
     $mime      = "application/x-mpegURL";
     $video_params += array(
       'mime' => $mime,

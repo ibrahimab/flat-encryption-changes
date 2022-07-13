@@ -434,7 +434,7 @@ class IslandoraFedoraApiA extends FedoraApiA {
     $params['download'] = '1';
 
     return $this->getClient()
-                ->request('GET', '/tla-decryption/render/' . $pid . '/' . $dsid, [
+                ->request('GET', '/tla-decryption/render/' . $pid . '/' . $dsid . '/' . flat_auth_get_token(), [
                   'query' => $params,
                   'version' => 1.0,
                   'read_timeout' => 6000,
